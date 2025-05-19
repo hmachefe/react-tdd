@@ -1,9 +1,11 @@
+import AwesomeCounter from './components/AwesomeCounter';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Awesome Counter</h1>
+    <div>
+      <AwesomeCounter />
     </div>
   );
 }
