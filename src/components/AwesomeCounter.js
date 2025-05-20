@@ -1,11 +1,20 @@
+import { useState } from "react";
+
 const AwesomeCounter = ({initialValue = 0}) => {
+
+    const [count, setCount] = useState(initialValue ?? 0);
+    const add = () => {
+        setCount(prevCount => prevCount + 1);
+    };
+
     return ( <div>
         <h1>
             Awesome Counter
         </h1>
         <span>
-            {initialValue}
+            {count}
         </span>
+        <button onClick={add}>Add</button>
     </div> );
 }
  

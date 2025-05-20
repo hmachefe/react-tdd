@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import AwesomeCounter from "./AwesomeCounter";
 
 test("it should have the correct initial value when set to 7", () => {
@@ -14,11 +15,20 @@ test("it should have a default initial value of 0", () => {
 });
 
 test("it should increase the value correctly when add is clicked once", () => {
-    throw new Error();
+    render(<AwesomeCounter initialValue={1}/>);
+    const addButton = screen.getByText("Add");
+    userEvent.click(addButton);
+    const count = screen.queryByText(2);
+    expect(count).toBeVisible();
 });
 
 test("it should increase the value correctly when add is clicked twice", () => {
-    throw new Error();
+    render(<AwesomeCounter initialValue={1}/>);
+    const addButton = screen.getByText("Add");
+    userEvent.click(addButton);
+    userEvent.click(addButton);
+    const count = screen.queryByText(3);
+    expect(count).toBeVisible();
 });
 
 test("it should increase the value correctly when remove is clicked once", () => {
