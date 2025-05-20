@@ -6,11 +6,22 @@ const AwesomeCounter = ({initialValue = 0}) => {
     const add = () => {
         setCount(prevCount => prevCount + 1);
     };
+    const remove = () => {
+        setCount(prevCount => {
+            const result = prevCount-1; 
+            if (result < 0) {
+                return 0;
+            }
+            // else
+            return result;
+        });
+    };
 
     return ( <div>
         <h1>
             Awesome Counter
         </h1>
+        <button onClick={remove}>Remove</button>        
         <span>
             {count}
         </span>
