@@ -1,9 +1,16 @@
+import { render, screen } from "@testing-library/react";
+import AwesomeCounter from "./AwesomeCounter";
+
 test("it should have the correct initial value when set to 7", () => {
-    throw new Error();
+    render(<AwesomeCounter initialValue={7} />);
+    const count = screen.queryByText(7);
+    expect(count).toBeVisible();
 });
 
 test("it should have a default initial value of 0", () => {
-    throw new Error();
+    render(<AwesomeCounter />);
+    const count = screen.queryByText(0);
+    expect(count).toBeVisible();
 });
 
 test("it should increase the value correctly when add is clicked once", () => {
